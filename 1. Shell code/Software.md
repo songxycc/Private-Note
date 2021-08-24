@@ -14,6 +14,7 @@
 ```pfastq-dump SRR2090164.sra --split-3 --gzip -O outfile_path -t 8 ``` 
 
 ### **Plink**
+***
 ##### 转换plink格式
 ```plink --vcf input.vcf --autosome-num 42 --recode --out output --double-id```
 ##### 查看缺失率
@@ -24,12 +25,14 @@
 ```plink --file output --het --out R_check```
 
 ### **BWA**
+***
 ##### mem比对
 ```bwa mem -t 4 -R '@RG\tID:xxx\tPL:illumina\tSM:xxx' ref.fa reads1.fq.gz reads2.fq.gz| samtools view -Sb - > out.bam```
 <br>
 *参考基因组  ```bwa index file.fa ``` 建立索引
 
 ### **Picard**
+***
 ##### 去重
 ```java -jar picard.jar MarkDuplicates REMOVE_DUPLICATES=true I=input.bam O=output.bam M=mdMetrics.txt ```
 ##### 生成dict
@@ -41,6 +44,7 @@ picard AddOrReplaceReadGroups -I XX.bam -O xx_header.bam --RGID human --RGLB lib
 ```
 
 ### **VCFtools/BCFtools**
+***
 ##### 过滤
 ```
 --remove-indels             
@@ -63,6 +67,7 @@ bcftools concat file1.vcf.gz file2.vcf.gz
 ```bcftools merge *vcf.gz -Oz -o Merged.vcf.gz```
 
 ### **GATK**
+***
 ##### SNP calling
 ```
 gatk HaplotypeCaller -R /hg38.fa -I intput.bam -ERC GVCF -O output.g.vcf 
@@ -75,6 +80,7 @@ gatk GenotypeGVCFs -R /data1/home/xinyue/ref/ABD/abd_iwgscV1.fa.gz -V combined.g
 ```
 
 ### **dwgsim** 
+***
 ##### simulate  datasets
 ```dwgsim -e 0.02 -E 0.02 -d 350 -1 150 -2 150 -r 0.001 -R 0.5 -N 39000000 -c 0 ref.fa test```
 
