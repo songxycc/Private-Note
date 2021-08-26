@@ -60,7 +60,7 @@ picard AddOrReplaceReadGroups -I XX.bam -O xx_header.bam --RGID human --RGLB lib
 ##### merge vcf files from different samples
 ```
 bgzip file1.vcf 
-tabix -p file1.vcf.gz
+tabix -p vcf file1.vcf.gz
 bcftools concat file1.vcf.gz file2.vcf.gz 
 ```
 ##### merge vcf files from  the same sample

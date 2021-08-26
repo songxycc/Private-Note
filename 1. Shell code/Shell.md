@@ -65,3 +65,5 @@ sed -i '1s/[#*]/ff/gp' file  --针对文件第1行，将其中的#号或是*号�
 ##### 新增一行
 ```awk '{print $0,"cwy"}' test1.txt > test2.txt```<br>
 ```awk '{print $1,$2,"cwy",$3}' test1.txt > test3.txt  ```（中间新增)
+##### 新增列指定分隔符
+``` awk 'BEGIN{FS=OFS="\t"}END{print $0,"sss"}' file ```
