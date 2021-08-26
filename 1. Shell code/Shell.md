@@ -42,6 +42,7 @@
 
 ##### 删除特定行
 ```sed -e '/abc/d;/def/d'  a.txt ```
+
 ##### 追加文件
 ```cat chr${i}.fa >> hg19.fasta```
 
