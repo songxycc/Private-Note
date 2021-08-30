@@ -60,7 +60,7 @@ sed -i '1s/[#*]/ff/gp' file  --针对文件第1行，将其中的#号或是*号�
 ```
 
 ##### if else
-```awk -F '\t' '{if($8 ~ /AF=1.0/) print $0,DD"\t", "1/1";else print $0,"\t", "0/1"}' ```
+```awk 'BEGIN{FS=OFS="\t"}{if($8 ~ /AF=1.0/) print $0,DD"\t", "1/1";else print $0,"\t", "0/1"}' ```
 
 ##### 生成文件写入内容
 ```for i in {2..10}; do echo "sample${i}" > sample${i}.txt; done```
@@ -69,4 +69,4 @@ sed -i '1s/[#*]/ff/gp' file  --针对文件第1行，将其中的#号或是*号�
 ```awk '{print $0,"cwy"}' test1.txt > test2.txt```<br>
 ```awk '{print $1,$2,"cwy",$3}' test1.txt > test3.txt  ```（中间新增)
 ##### 新增列指定分隔符
-``` awk 'BEGIN{FS=OFS="\t"}END{print $0,"sss"}' file ```
+``` awk 'BEGIN{FS=OFS="\t"}{print $0,"sss"}' file ```
